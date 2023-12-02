@@ -13,7 +13,7 @@ The app will react to whatever audio is being input into Windows' default audio 
 
 ## Processing shader examples
 
-This is a collection of GLSL shaders being run inside Processing. Some of them are generic ones (brightness/saturation/contrast filters, blur, edge detection, etc) and others are more experimental. A number of them are modifications of exmaples taken from [GLSL Heroku](glsl.heroku.com).
+This is a collection of GLSL shaders being run inside Processing. Some of them are generic ones (brightness/saturation/contrast filters, blur, edge detection, etc) and others are more experimental. A number of them are modifications of examples taken from [GLSL Heroku](glsl.heroku.com).
 
 In the Processing sketches, some shader parameters are routed to the position of the mouse, so as you move the mouse around inside the canvas, various properties of the shader graphics will change.
 
