@@ -7,7 +7,7 @@ The app can run itself, using randomised values, or can be run manually as a VJ 
 
 - R Key: Toggles "Random" mode. The app will run itself while random mode is enabled.
 - A/D Keys: A/D decrement/increment the index of the currently playing shader, respectively. 
-- Number Keys 0-9: These manually set the index of the currently playing shader (there are 10 shaders at time of writing).
+- Number Keys 0-9: These manually set the index of the currently playing shader. 0 key = shader 10, and 1-9 keys = shaders 1-9 (there are 10 shaders at time of writing).
 - Esc: when running one of the release executables in full screen mode, this will kill the app. 
 
 The app will react to whatever audio is being input into Windows' default audio device for *recording*. You can use something like [VB Virtual Audio Cable](https://vb-audio.com/Cable/) to get more control over this when not using a hardware line-in. 
