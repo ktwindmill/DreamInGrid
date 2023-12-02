@@ -1,7 +1,7 @@
 ## DreamInGrid 
 
 This is a fork of [n1ckfg's Processing Shader Examples](https://github.com/genekogan/Processing-Shader-Examples/), adapted into a VJing app using [Minim](https://code.compartmental.net/minim/)'s beat analysis and audio buffer and an extension of the original P5Control shader switching backend.
-At present, it only modifies the `ColorShaders` folder. 
+At present, it only uses the `ColorShaders` folder from the orginal repo. 
 
 The app can run itself, using randomised values, or can be run manually as a VJ app, using the following hotkeys:
 
