@@ -6,10 +6,14 @@ At present, it only modifies the `ColorShaders` folder.
 The app can run itself, using randomised values, or can be run manually as a VJ app, using the following hotkeys:
 
 Hotkey R: Toggles "Random" mode. The app will run itself while random mode is enabled.
+
 Hotkeys A/D: A/D decrement/increment the index of the currently playing shader, respectively. 
+
 Number keys 1-0: These manually set the index of the currently playing shader (there are 10 shaders at time of writing).
 
 The app will react to whatever audio is being input into Windows' default audio device for *recording*. You can use something like [VB Virtual Audio Cable](https://vb-audio.com/Cable/) to get more control over this when not using a hardware line-in. 
+
+Esc: when running an exporting executable in full screen mode, this will kill the app. 
 
 ## Processing shader examples
 
