@@ -3,6 +3,7 @@ class GShader
   String path;
   PShader shader;
   ArrayList<Param> parameters;
+  float cumulativeTimeOffset = 0;
   
   GShader(String path) {
     this.path = path;
@@ -20,19 +21,46 @@ class GShader
     parameters.add(param);
   }
   
-  void setShaderParameters() {
-    shader.set("time", (float) millis()/1000.0);
+  void addParameter(String name, float minVal1, float maxVal1, float minVal2, float maxVal2, float minVal3, float maxVal3) {
+    Param param = new Param(name, minVal1, maxVal1, minVal2, maxVal2, minVal3, maxVal3);
+    parameters.add(param);
+  }
+  
+  void setShaderParameters(float timeOffset) {
+    cumulativeTimeOffset += timeOffset;
+    shader.set("time", (float) (millis()+cumulativeTimeOffset)/1000.0);
     shader.set("resolution", float(pg.width), float(pg.height));
     for (Param p : parameters) {
       if (p.is2d) {
         shader.set(p.name, p.value2.x, p.value2.y);
-      } else {
+      } 
+      else if(p.is3d){
+        shader.set(p.name, p.value3.x, p.value3.y, p.value3.z);
+      }
+      else {
         shader.set(p.name, p.value);
       }
     }
   }
   
+  void setShaderParametersOnHat() {
+    for (Param p : parameters) {
+      if (p.is2d) {
+        PVector rand = new PVector(random(p.minValue2.x,p.maxValue2.x),random(p.minValue2.y,p.maxValue2.y));
+        shader.set(p.name, rand.x, rand.y);
+      } 
+      else if(p.is3d){
+        PVector rand = new PVector(random(p.minValue3.x,p.maxValue3.x),random(p.minValue3.y,p.maxValue3.y),random(p.minValue3.z,p.maxValue3.z));
+        shader.set(p.name, rand.x, rand.y,rand.z);
+      }
+      else {
+        shader.set(p.name, random(p.minValue,p.maxValue));
+      }
+    }
+  }
+  
   void addGui() {
+    /*
     PVector guiPosition = new PVector(15, 50);
     for (Param p : parameters) {
       if (p.is2d) {
@@ -53,6 +81,7 @@ class GShader
         guiPosition.y += 35;
       } 
     }
+    */
   }
   
   void removeGui() {
@@ -62,4 +91,13 @@ class GShader
   }
 }
 
-
+float wrap(float val, float min, float max){
+  
+  if(val < min){
+    val = max;
+  } else if (val > max){
+    val = min;
+  }
+  
+  return val;
+}

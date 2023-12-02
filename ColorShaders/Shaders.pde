@@ -24,27 +24,13 @@ void setupShaders()
   
   // eye
   newShader = new GShader("eye.glsl");
-  newShader.addParameter("mouse", 0, width, 0, height);
+  newShader.addParameter("mouse", 0, width, height*0.4, height);
   shaders.add(newShader);
   
   // bands
   newShader = new GShader("bands.glsl");
   newShader.addParameter("noiseFactor", 5, 100);
   newShader.addParameter("stripes", 0, 100);
-  shaders.add(newShader);
-  
-  // sinewave
-  newShader = new GShader("sinewave.glsl");
-  newShader.addParameter("colorMult", 0.5, 5.0, 0.5, 2.0);
-  newShader.addParameter("coeffx", 10, 50);
-  newShader.addParameter("coeffy", 0, 90);
-  newShader.addParameter("coeffz", 1, 200);
-  shaders.add(newShader);
-  
-  // water noise
-  newShader = new GShader("noisy.glsl");
-  newShader.addParameter("noiseFactor", 0, 10, 0, 10);
-  newShader.addParameter("noiseFactorTime", 0, 2);
   shaders.add(newShader);
   
   // nebula
@@ -54,16 +40,9 @@ void setupShaders()
   
   // landscape
   newShader = new GShader("landscape.glsl");
-  newShader.addParameter("dir", 1.5, 5);
+  newShader.addParameter("dir", 2.5, 8);
   shaders.add(newShader);
-  
-  // monjori
-  newShader = new GShader("monjori.glsl");
-  newShader.addParameter("graininess", 10, 100);
-  newShader.addParameter("pace", 20, 80);
-  newShader.addParameter("twist", 0, 100);
-  shaders.add(newShader);
-  
+   
   // bits
   newShader = new GShader("bits.glsl");
   newShader.addParameter("mx", 0, 1);
@@ -76,6 +55,12 @@ void setupShaders()
   newShader.addParameter("fade", 0, 1);
   newShader.addParameter("slow", 0.1, 3);
   newShader.addParameter("gray", 0, 1);
+  shaders.add(newShader);
+  
+  // iq's landscape
+  newShader = new GShader("landscape_iq.glsl");
+  newShader.addParameter("brightness", 0.3, 1.0);
+
   shaders.add(newShader);
 }
 
