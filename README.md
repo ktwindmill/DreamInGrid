@@ -12,4 +12,4 @@ The app can run itself, using randomised values, or can be run manually as a VJ 
 
 The app will react to whatever audio is being input into Windows' default audio device for *recording*. You can use something like [VB Virtual Audio Cable](https://vb-audio.com/Cable/) to get more control over this when not using a hardware line-in. 
 
-Requires the [ControlP5 library](http://www.sojamo.de/libraries/controlP5/) and the [Minim Library](https://code.compartmental.net/minim/).
+Requires the [ControlP5 library](http://www.sojamo.de/libraries/controlP5/) and the [Minim library](https://code.compartmental.net/minim/).
