@@ -1,3 +1,15 @@
+##DreamInGrid 
+
+This is a fork of [n1ckfg's (Nick Fox-Gieg) Processing Shader Examples](https://github.com/genekogan/Processing-Shader-Examples/), adapted into a VJing app using Minim's beat analysis and audio buffer and an extension of the original P5Control shader switching backend.
+
+The app can run itself, using randomised values, or can be run manually as a VJ app, using the following hotkeys:
+
+Hotkey R: Toggles "Random" mode. The app will run itself while random mode is enabled.
+Hotkeys A/D: A/D decrement/increment the index of the currently playing shader, respectively. 
+Number keys 1-0: These manually set the index of the currently playing shader (there are 10 shaders at time of writing).
+
+The app will react to whatever audio is being input into Windows' default audio device for *recording*. You can use something like [VB Virtual Audio Cable](https://vb-audio.com/Cable/) to get more control over this when not using a hardware line-in. 
+
 ## Processing shader examples
 
 This is a collection of GLSL shaders being run inside Processing. Some of them are generic ones (brightness/saturation/contrast filters, blur, edge detection, etc) and others are more experimental. A number of them are modifications of exmaples taken from [GLSL Heroku](glsl.heroku.com).
