@@ -47,41 +47,41 @@ class GShader
     for (Param p : parameters) {
       if (p.is2d) {
         PVector rand = new PVector(random(p.minValue2.x,p.maxValue2.x),random(p.minValue2.y,p.maxValue2.y));
-        shader.set(p.name, rand.x, rand.y);
+        p.value2 = new PVector(rand.x, rand.y);
       } 
       else if(p.is3d){
         PVector rand = new PVector(random(p.minValue3.x,p.maxValue3.x),random(p.minValue3.y,p.maxValue3.y),random(p.minValue3.z,p.maxValue3.z));
-        shader.set(p.name, rand.x, rand.y,rand.z);
+        p.value3 = new PVector(rand.x, rand.y,rand.z);
       }
       else {
-        shader.set(p.name, random(p.minValue,p.maxValue));
+        p.value = random(p.minValue,p.maxValue);
       }
     }
   }
   
   void addGui() {
-    /*
-    PVector guiPosition = new PVector(15, 50);
-    for (Param p : parameters) {
-      if (p.is2d) {
-        cp5.addSlider2D(p.name)
-           .setArrayValue(new float[]{p.value2.x, p.value2.y})
-           .setMinX(p.minValue2.x).setMinY(p.minValue2.y)
-           .setMaxX(p.maxValue2.x).setMaxY(p.maxValue2.y)
-           .setPosition(guiPosition.x, guiPosition.y)
-           .setSize(300, 300);           
-        guiPosition.y += 330;
+    if(SHOW_GUI){
+      PVector guiPosition = new PVector(15, 50);
+      for (Param p : parameters) {
+        if (p.is2d) {
+          cp5.addSlider2D(p.name)
+             .setArrayValue(new float[]{p.value2.x, p.value2.y})
+             .setMinX(p.minValue2.x).setMinY(p.minValue2.y)
+             .setMaxX(p.maxValue2.x).setMaxY(p.maxValue2.y)
+             .setPosition(guiPosition.x, guiPosition.y)
+             .setSize(300, 300);           
+          guiPosition.y += 330;
+        }
+        else {
+          cp5.addSlider(p.name)
+             .setValue(p.value)
+             .setRange(p.minValue, p.maxValue)
+             .setPosition(guiPosition.x, guiPosition.y)
+             .setSize(300, 25);
+          guiPosition.y += 35;
+        } 
       }
-      else {
-        cp5.addSlider(p.name)
-           .setValue(p.value)
-           .setRange(p.minValue, p.maxValue)
-           .setPosition(guiPosition.x, guiPosition.y)
-           .setSize(300, 25);
-        guiPosition.y += 35;
-      } 
     }
-    */
   }
   
   void removeGui() {

@@ -20,8 +20,11 @@ PGraphics pg;
 PGraphics wave;
 int idxShader = -1;
 
+static boolean SHOW_GUI = false; //GUI doesnt do anything at the moment, and actually disables some shader parameters' randomisation, so leave this as false. 
+
 void setup() 
 {
+  
   size(1920, 1080, P2D);
   setupShaders();
   setupGui();  
@@ -50,14 +53,15 @@ void setup()
   randomize = true;
   
   println(" ");
-  println("Input buffer size: " + input.bufferSize());
+  println("Audio input buffer size: " + input.bufferSize());
   
   println(" ");
   println("Shaders Loaded: ");
   
   for (int i=0; i<shaders.size(); i++) {
-    println(shaders.get(i));
+    println(shaders.get(i).path);
   }
+  println(" ");
 }
 
 void draw() 
@@ -108,6 +112,7 @@ void draw()
   float a = map(eRadius, 20, 80, 0, 255);
   fill(255, 255, 255, a);
   if ( beat.isSnare()) eRadius = 80;
+  blendMode(ADD);
   rect(0, 0, width, height);
   eRadius *= 0.8;
   if ( eRadius < 20 ) eRadius = 20;
