@@ -50,7 +50,7 @@ void setup()
   ellipseMode(RADIUS);
   eRadius = 20;
   
-  randomize = true;
+  randomize = false;
   
   println(" ");
   println("Audio input buffer size: " + input.bufferSize());
